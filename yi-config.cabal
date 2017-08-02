@@ -25,4 +25,7 @@ executable yi
                      , yi-keymap-emacs
                      , yi-misc-modes
                      , yi-mode-haskell
+                     , yi-mode-javascript
                      , yi-rope
+                     , yi-fuzzy-open
+  ghc-options: -O2 -threaded -Wall -ferror-spans

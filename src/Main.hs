@@ -4,11 +4,14 @@ import Lens.Micro.Platform
 import System.Environment
 
 import Yi
+import Yi.Config.Simple (globalBindKeys, theme, addMode)
 import Yi.Config.Simple.Types
 import Yi.Config.Default.HaskellMode (configureHaskellMode)
+import Yi.Config.Default.JavaScriptMode (configureJavaScriptMode)
 import Yi.Config.Default.MiscModes (configureMiscModes)
 import Yi.Config.Default.Emacs (configureEmacs)
 import Yi.Config.Default.Vty (configureVty)
+import Yi.Fuzzy
 
 main :: IO ()
 main = do
@@ -24,4 +27,6 @@ myConfig = do
   configureVty
   configureEmacs
   configureHaskellMode
+  configureJavaScriptMode
   configureMiscModes
+  globalBindKeys $ metaCh 'v' ?>>! splitE
